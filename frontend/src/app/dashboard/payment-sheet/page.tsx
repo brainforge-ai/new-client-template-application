@@ -88,7 +88,8 @@ export default function PaymentSheetPage() {
     setEditingPayment(payment);
     setName(payment.name);
     setAmount(payment.amount);
-    setDate(new Date(payment.date).toISOString().split("T")[0]);
+    // Extract just the date part (before T) for the input
+    setDate(payment.date.split("T")[0]);
     setTime(payment.time);
     setOpen(true);
   };
@@ -133,7 +134,10 @@ export default function PaymentSheetPage() {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString();
+    // Extract just the date part (before T) and parse as local date
+    const datePart = dateString.split("T")[0];
+    const [year, month, day] = datePart.split("-");
+    return new Date(Number(year), Number(month) - 1, Number(day)).toLocaleDateString();
   };
 
   const formatAmount = (amount: string) => {
