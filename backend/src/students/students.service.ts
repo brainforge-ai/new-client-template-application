@@ -10,11 +10,13 @@ export class StudentsService {
 
     // Auto-generate email: sat+<lowercase firstname><first initial of lastname>@homeworkhelperstutoring.com
     const email =
-      createStudentDto.email;
+      createStudentDto.email ||
+      `sat+${firstName.toLowerCase()}${lastName.charAt(0).toLowerCase()}@homeworkhelperstutoring.com`;
 
     // Auto-generate password: Homework_<Capitalized firstname>1!
     const password =
-      createStudentDto.password;
+      createStudentDto.password ||
+      `Homework_${firstName.charAt(0).toUpperCase() + firstName.slice(1)}1!`;
 
     const student = await prisma.student.create({
       data: {

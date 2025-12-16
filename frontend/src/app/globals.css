@@ -45,6 +45,17 @@
 
 :root {
   --radius: 0.625rem;
+
+  /* Stitch Color Scheme */
+  --stitch-bg-main: #0c0c0c;
+  --stitch-bg-container: #121212;
+  --stitch-border: #1e1e1e;
+  --stitch-border-active: #4f4f4f;
+  --stitch-orange: #fc5810;
+  --stitch-orange-hover: #e04e0d;
+  --stitch-text-inactive: #7B7B7B;
+
+  /* Default light theme */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -79,36 +90,37 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  /* Use Stitch color scheme for dark theme */
+  --background: oklch(0.047 0 0); /* #0c0c0c */
+  --foreground: oklch(0.985 0 0); /* white */
+  --card: oklch(0.047 0 0); /* #0c0c0c */
+  --card-foreground: oklch(0.985 0 0); /* white */
+  --popover: oklch(0.047 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: oklch(0.664 0.195 29); /* #fc5810 orange */
+  --primary-foreground: oklch(0.985 0 0); /* white */
+  --secondary: oklch(0.071 0 0); /* #121212 */
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: oklch(0.071 0 0); /* #121212 */
+  --muted-foreground: oklch(0.556 0 0); /* #7B7B7B */
+  --accent: oklch(0.071 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(0.118 0 0); /* #1e1e1e */
+  --input: oklch(0.311 0 0); /* #4f4f4f */
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-1: oklch(0.664 0.195 29); /* orange */
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.071 0 0); /* #121212 */
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.664 0.195 29); /* orange */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.071 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-border: oklch(0.118 0 0); /* #1e1e1e */
   --sidebar-ring: oklch(0.556 0 0);
 }
 
@@ -118,5 +130,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .stitch-button {
+    border-radius: 0 24px 0 24px;
+  }
+  .stitch-card {
+    border-radius: 10px;
   }
 }
